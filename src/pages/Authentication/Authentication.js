@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid } from "@mui/material";
-import CommonButton from "../../commons/CommonButton/CommonButton";
+import Header from "../../components/Header/Header";
 
 const Authentication = () => {
   const buttonStyles = {
@@ -24,17 +24,8 @@ const Authentication = () => {
   };
 
   return (
-    <Grid item xs={8} style={{ backgroundColor: "#009be5" }}>
-      This is authentication page
-      <CommonButton variant="contained" size="large" sx={buttonStyles}>
-        Add User
-      </CommonButton>
-      <CommonButton variant="outlined" sx={buttonStyles}>
-        Web Setup
-      </CommonButton>
-      <CommonButton variant="contained" color="primary">
-        Primary
-      </CommonButton>
+    <Grid item xs={9.9}>
+      <Header title={"Authentication"} />
     </Grid>
   );
 };

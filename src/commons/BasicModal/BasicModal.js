@@ -9,7 +9,7 @@ export default function BasicModal({
   title,
   subTitle,
   content,
-  validate,
+  onSubmit
 }) {
   return (
     <Modal open={open} onClose={onClose}>
@@ -25,7 +25,7 @@ export default function BasicModal({
         {content}
 
         <Box sx={modalStyles.buttons}>
-          <CommonButton variant="contained" onClick={validate}>
+          <CommonButton variant="contained" onClick={onSubmit}>
             Submit
           </CommonButton>
           <CommonButton onClick={onClose}>Cancel</CommonButton>

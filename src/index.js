@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
@@ -13,7 +13,8 @@ import Storage from "./pages/Storage/Storage";
 import { ThemeProvider } from "@mui/material";
 import { dashboardTheme } from "./dasboardTheme";
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <ThemeProvider theme={dashboardTheme}>
     <BrowserRouter>
       <Routes>
@@ -27,9 +28,26 @@ ReactDOM.render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </ThemeProvider>,
-  document.getElementById("root")
+  </ThemeProvider>
 );
+
+// ReactDOM.render(
+//   <ThemeProvider theme={dashboardTheme}>
+//     <BrowserRouter>
+//       <Routes>
+//         <Route path="/" element={<App />}>
+//           <Route path="/authentication" element={<Authentication />} />
+//           <Route path="/database" element={<Database />} />
+//           <Route path="/functions" element={<Functions />} />
+//           <Route path="/hosting" element={<Hosting />} />
+//           <Route path="/machine-learning" element={<MachineLearning />} />
+//           <Route path="/storage" element={<Storage />} />
+//         </Route>
+//       </Routes>
+//     </BrowserRouter>
+//   </ThemeProvider>,
+//   document.getElementById("root")
+// );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

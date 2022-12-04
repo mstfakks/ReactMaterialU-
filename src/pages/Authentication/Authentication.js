@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IconButton, Box, Typography } from "@mui/material";
 import BasicCard from "../../commons/BasicCard/BasicCard";
 import SearchBar from "../../commons/SearchBar/SearchBar";
@@ -6,15 +6,19 @@ import { Refresh } from "@mui/icons-material";
 import CommonButton from "../../commons/CommonButton/CommonButton";
 import GridWrapper from "../../commons/GridWrapper/GridWrapper";
 import { cardHeaderStyles } from "./styles";
+import NewUserModal from "../../commons/Modals/NewUserModal/NewUserModal";
 
 const Authentication = () => {
+  const [open, setOpen] = useState(
+    false
+  ); /* Modal için başlangıçta open değerini false veriyoruz */
   const getHeader = () => {
     const handleChange = (value) => {
       console.log(value);
     };
 
     const addUser = () => {
-      console.log("click");
+      setOpen(true); /* Modal open değerini burada tıklama ile true yapabiliriz. */
     };
     return (
       <Box sx={cardHeaderStyles.wrapper}>
@@ -56,6 +60,9 @@ const Authentication = () => {
   return (
     <GridWrapper>
       <BasicCard header={getHeader()} content={getContent()} />
+      <NewUserModal open={open} onClose={() => setOpen(false)} /> 
+      {/* onClose ile herhangi bir yere basıldığında open değerini false a 
+      çekip modal kapattık */}
     </GridWrapper>
   );
 };

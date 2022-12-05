@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import GridWrapper from "../../commons/GridWrapper/GridWrapper";
-import BasicSnackbar from "../../commons/BasicSnackbar/BasicSnackbar";
-import CommonButton from "../../commons/CommonButton/CommonButton";
+import UserTable from "../../components/UserTable/UserTable";
+import BasicCard from "../../commons/BasicCard/BasicCard";
 
 const Storage = () => {
   const [open, setOpen] = useState(false);
@@ -19,16 +19,7 @@ const Storage = () => {
   };
   return (
     <GridWrapper>
-      This is storage page
-      <CommonButton variant="contained" onClick={handleClick}>
-        open success snackbar
-      </CommonButton>
-      <BasicSnackbar
-        open={open}
-        onClose={handleClose}
-        severity="error"
-        message="Error Messages"
-      />
+      <BasicCard content={<UserTable />} />
     </GridWrapper>
   );
 };
